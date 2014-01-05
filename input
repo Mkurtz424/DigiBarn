@@ -1,0 +1,34 @@
+# The point of this script is to take information from the user on a new item being imported into the DigiBarn Computer Museum's Cybercollection.
+# Work in progress. Super work in progress. THIS COULD NOT BE A BIGGER WORK IN PROGRESS.
+
+# Creating a dictionary so that the user can categorize their new entry into the existing categories on the website
+categories = {'1' : 'Computer Systems', '2' : 'Mystery Systems', '3' : 'Calculators, Computation Devices and PDAs', '4' : 'Historic Systems not housed here', '5' : 'Print Documentation', '6' : 'DigiBarn TV and DigiBarn Radio (audio and video documentation)', '7' : 'Computer Game Systems', '8' : 'Software', '9' : 'Graphs and Trees', '10' : 'Printers & Plotters & Teletypes', '11' : 'Devices', '12' : 'Parts', '13' : 'Monitors & Terminals', '14' : 'Clocks & Radios', '15' : 'Schwag', '16' : 'Jokes, Hoaxes and Urban Legends', '17' : 'Banners & Flags', '18' : 'Furniture', '19' : 'Historic Locations', '20' : 'Just Weird Stuff'}
+
+# Asks the user to select a category based on a number value. If an invalid number is chosen, the user is asked to enter a valid number and is given clarification as to the syntax.
+# Asks for confirmation that the user has selected the correct category, and if not the user is allowed to chose a new category until they are satisfied.
+category = raw_input('Please enter a numerical value corresponding to the type of item you are submitting based on the following categories:\n1. Computer Systems\n2. Mystery Systems\n3. Calculators, Computation Devices and PDAs\n4. Historic Systems not housed here\n5. Print Documentation\n6. DigiBarn TV and DigiBarn Radio (audio and video documentation)\n7. Computer Game Systems\n8. Software\n9. Graphs and Trees\n10. Printers & Plotters & Teletypes\n11. Devices\n12. Parts\n13. Monitors & Terminals\n14. Clocks & Radios\n15. Schwag\n16. Jokes, Hoaxes and Urban Legends\n17. Banners & Flags\n18. Furniture\n19. Historic Locations\n20. Just Weird Stuff\n\n>>')
+while (categories.has_key(category) == False):
+	category = raw_input('You\'ve entered a value that is not recognized. Please be sure to enter the number of the category with no periods or spaces. Which category would you like?\n>>')
+confirm=raw_input("You\'ve selected the '" + categories[category]+"' category. Is this correct? ('Yes' or 'No')\n>>")
+while (confirm != 'Yes'):
+	category=raw_input('You have asked to change the category.\nPlease enter a numerical value corresponding to the type of item you are submitting based on the following categories:\n1. Computer Systems\n2. Mystery Systems\n3. Calculators, Computation Devices and PDAs\n4. Historic Systems not housed here\n5. Print Documentation\n6. DigiBarn TV and DigiBarn Radio (audio and video documentation)\n7. Computer Game Systems\n8. Software\n9. Graphs and Trees\n10. Printers & Plotters & Teletypes\n11. Devices\n12. Parts\n13. Monitors & Terminals\n14. Clocks & Radios\n15. Schwag\n16. Jokes, Hoaxes and Urban Legends\n17. Banners & Flags\n18. Furniture\n19. Historic Locations\n20. Just Weird Stuff\n\n>>')
+	while (categories.has_key(category) == False):
+		category = raw_input('You\'ve entered a value that is not recognized. Please be sure to enter the number of the category with no periods or spaces. Which category would you like?\n>>')
+	confirm=raw_input("You\'ve selected the '" + categories[category]+"' category. Is this correct? ('Yes or 'No')\n>>")
+
+# Asks user for information such as item name and item description. The user may review and edit this information until they confirm it is correct.
+itemName = raw_input('\nPlease name the item that you are saving into the '+categories[category]+' category.\n>>')
+confirm = raw_input("Is the name "+itemName+" correct? ('Yes' or 'No')\n>>")
+while (confirm != 'Yes'):
+	itemName = raw_input('\nPlease name the item that you are saving into the '+categories[category]+' category.\n>>')
+	confirm = raw_input("Is the name "+itemName+" correct? ('Yes' or 'No')\n>>")
+itemDescription = raw_input('\nPlease enter a description of the item.\n>>')
+confirm = raw_input("Your description is:\n" + itemDescription + "\n Is this correct? ('Yes' or 'No')\n>>")
+while (confirm != 'Yes'):
+	itemDescription = raw_input('\nPlease enter a description of the item.\n>>')
+	confirm = raw_input("Your description is:\n" + itemDescription + "\n Is this correct? ('Yes' or 'No')\n>>")
+
+# Thanks the user and prints the category, name, and description of the item.
+print ('Thank you for importing your new item!\n\nItem Category: '+categories[category]+'\nItem Name: '+itemName+'\nItem Description: '+itemDescription)
+
+raw_input('Press Enter to Quit.')
